@@ -32,6 +32,8 @@ def all0(box):
             if any(cell == 0 for cell in row):
                 return False
     return True
+#이부분이 틀렸었음
+
 
 def noway_modified(box):
     for i in range(H):
@@ -55,8 +57,8 @@ dy = [1, -1, 0, 0, 0, 0]
 dz = [0, 0, 0, 0, 1, -1]
 
 # 높이 H, 행 M, 열 N을 입력받습니다.
-M, N, H = map(int, input().split())
-#M, N, H = (map(int, sys.stdin.readline().split()))
+#M, N, H = map(int, input().split())
+M, N, H = (map(int, sys.stdin.readline().split()))
 box = [[list(map(int, sys.stdin.readline().split())) for _ in range(N)] for _ in range(H)]
 
 
