@@ -1,13 +1,13 @@
-def flip_vertically(matrix):
+def flip(matrix):
     return matrix[::-1]
 
-def flip_horizontally(matrix):
+def flip2(matrix):
     return [row[::-1] for row in matrix]
 
-def rotate_90_clockwise(matrix):
+def rotate_90_clock(matrix):
     return [list(row) for row in zip(*matrix[::-1])]
 
-def rotate_90_counterclockwise(matrix):
+def rotate_90_lclock(matrix):
     return [list(row) for row in zip(*matrix)][::-1]
 
 def operation_5(matrix, y, x):
@@ -41,26 +41,26 @@ def operation_6(matrix, y, x):
     return new_matrix
 
 
-y, x, tc = map(int, input().split()) 
+y, x, tc = map(int, input().split())
 board = [list(map(int, input().split())) for _ in range(y)]
-case = list(map(int, input().split())) 
+case = list(map(int, input().split()))
 
 for ncase in case:
     if ncase == 1:
-        board = flip_vertically(board)
+        board = flip(board)
     elif ncase == 2:
-        board = flip_horizontally(board)
+        board = flip2(board)
     elif ncase == 3:
-        board = rotate_90_clockwise(board)
-        y, x = x, y  
+        board = rotate_90_clock(board)
+        y, x = x, y
     elif ncase == 4:
-        board = rotate_90_counterclockwise(board)
-        y, x = x, y  
+        board = rotate_90_lclock(board)
+        y, x = x, y
     elif ncase == 5:
         board = operation_5(board, y, x)
     elif ncase == 6:
         board = operation_6(board, y, x)
 
-# Print the final state of the board
+
 for row in board:
     print(' '.join(map(str, row)))
