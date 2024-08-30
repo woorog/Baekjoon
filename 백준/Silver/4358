@@ -1,0 +1,29 @@
+from collections import *
+import sys
+
+slist=set()
+print()
+ans=[0]*10001
+lists=[]
+cnt=0
+while True:
+  nlen=len(slist)
+  now=sys.stdin.readline().strip()
+  if now=='':
+    break
+  cnt+=1
+  if now not in slist:
+    slist.add(now)
+    lists.append([now,1])
+    
+  else:
+    for i in range(len(lists)):
+        if lists[i][0] == now:
+            lists[i][1] += 1
+            break
+
+lists.sort(key=lambda x:x[0])
+print(lists)
+for a,b in lists:
+  print(a,round(b/cnt*100,4))
+
